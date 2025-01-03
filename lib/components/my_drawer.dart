@@ -31,14 +31,14 @@ class MyDrawer extends StatelessWidget {
 
           //home list tile
           MyDrawerTile(
-            text: "HOME",
+            text: "Trang chủ",
             icon: Icons.home,
             onTap: () => Navigator.pop(context),
           ),
 
           //setting list tile
           MyDrawerTile(
-            text: "SETTINGS",
+            text: "Cài đặt",
             icon: Icons.settings,
             onTap: () {
               Navigator.pop(context);
@@ -55,7 +55,7 @@ class MyDrawer extends StatelessWidget {
 
           //logout list tile
           MyDrawerTile(
-            text: "LOGOUT",
+            text: "Thoát",
             icon: Icons.login,
             onTap: () {},
           ),

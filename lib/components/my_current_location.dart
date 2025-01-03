@@ -7,20 +7,20 @@ class MyCurrentLocation extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("vi tri cua ban"),
+        title: const Text("Vị trí của bạn"),
         content: const TextField(
-          decoration: InputDecoration(hintText: "tim vi tri.."),
+          decoration: InputDecoration(hintText: "Tìm vị trí.."),
         ),
         actions: [
           //cancel button
           MaterialButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Huy'),
+            child: const Text('Hủy'),
           ),
           //save button
           MaterialButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('luu'),
+            child: const Text('Lưu'),
           ),
         ],
       ),
@@ -35,7 +35,7 @@ class MyCurrentLocation extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Dat hang ngay",
+            "Đặt hàng ngay",
             style: TextStyle(color: Theme.of(context).colorScheme.primary),
           ),
           GestureDetector(

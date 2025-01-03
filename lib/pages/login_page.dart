@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 25),
           //tin nhan va slogan app
-          Text("Drink app",
+          Text("Food K app",
               style: TextStyle(
                 fontSize: 16,
                 color: Theme.of(context).colorScheme.inversePrimary,
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
           //email text field
           MyTextField(
             controller: emailController,
-            hintText: "email",
+            hintText: "Email hoặc số điện thoại",
             obscureText: false,
           ),
           const SizedBox(height: 10),
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 10),
 
           MyButton(
-            text: "sign in",
+            text: "Đăng nhập",
             onTap: login,
           ),
 
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Not a member ?",
+                "Bạn chưa có tài khoản?",
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary),
               ),
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
               GestureDetector(
                 onTap: widget.onTap,
                 child: Text(
-                  "Register now",
+                  "Đăng ký ngay",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontWeight: FontWeight.bold,

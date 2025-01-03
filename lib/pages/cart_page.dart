@@ -23,7 +23,30 @@ class CartPage extends StatelessWidget {
             actions: [
               //xoa san pham button
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text("Bạn muốn xóa hết trong giỏ hàng?"),
+                      actions: [
+                        //button hủy
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text("Hủy"),
+                        ),
+
+                        //button yes
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            restaurant.clearCart();
+                          },
+                          child: const Text("Lưu"),
+                        ),
+                      ],
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.delete),
               )
             ],

@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           const SizedBox(height: 25),
           //tin nhan va slogan app
-          Text("let's create acc",
+          Text("Tạo tài khoản",
               style: TextStyle(
                 fontSize: 16,
                 color: Theme.of(context).colorScheme.inversePrimary,
@@ -44,14 +44,14 @@ class _RegisterPageState extends State<RegisterPage> {
           //email text field
           MyTextField(
             controller: emailController,
-            hintText: "email",
+            hintText: "Email hoặc số điện thoại",
             obscureText: false,
           ),
           const SizedBox(height: 10),
           //password text field
           MyTextField(
             controller: passwordController,
-            hintText: "password",
+            hintText: "Mật khẩu",
             obscureText: true,
           ),
 
@@ -59,14 +59,14 @@ class _RegisterPageState extends State<RegisterPage> {
           //confirmpassword text field
           MyTextField(
             controller: confirmPasswordController,
-            hintText: "confirm password",
+            hintText: "Xác nhận mật khẩu",
             obscureText: true,
           ),
 
           const SizedBox(height: 10),
           //sign up button
           MyButton(
-            text: "sign up",
+            text: "Đăng nhập",
             onTap: () {},
           ),
 
@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "already have an acc?",
+                "Bạn đã có tài khoản?",
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary),
               ),
@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
               GestureDetector(
                 onTap: widget.onTap,
                 child: Text(
-                  "Login now",
+                  "Đăng nhập ngay",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontWeight: FontWeight.bold,
