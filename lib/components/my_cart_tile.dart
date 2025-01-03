@@ -22,6 +22,7 @@ class MyCartTile extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //food image
                   ClipRRect(
@@ -40,7 +41,11 @@ class MyCartTile extends StatelessWidget {
                       Text(cartItem.food.name),
 
                       //food price
-                      Text('\$' + cartItem.food.price.toString()),
+                      Text(
+                        '\$' + cartItem.food.price.toString(),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
                     ],
                   ),
 
@@ -70,23 +75,27 @@ class MyCartTile extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10, bottom: 10, right: 10),
                 children: cartItem.selectedAddons
                     .map(
-                      (addon) => FilterChip(
-                        label: Row(
-                          children: [
-                            Text(addon.name),
-                            const SizedBox(width: 5),
-                            Text('(\$${addon.price})'),
-                          ],
-                        ),
-                        shape: StadiumBorder(
-                            side: BorderSide(
-                                color: Theme.of(context).colorScheme.primary)),
-                        onSelected: (value) {},
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary,
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.inversePrimary,
-                          fontSize: 12,
+                      (addon) => Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: FilterChip(
+                          label: Row(
+                            children: [
+                              Text(addon.name),
+                              const SizedBox(width: 5),
+                              Text('(\$${addon.price})'),
+                            ],
+                          ),
+                          shape: StadiumBorder(
+                              side: BorderSide(
+                                  color:
+                                      Theme.of(context).colorScheme.primary)),
+                          onSelected: (value) {},
+                          backgroundColor:
+                              Theme.of(context).colorScheme.secondary,
+                          labelStyle: TextStyle(
+                            color: Theme.of(context).colorScheme.inversePrimary,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     )
