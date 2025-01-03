@@ -1,3 +1,4 @@
+import 'package:drink_app1/components/my_cart_tile.dart';
 import 'package:drink_app1/models/cart_item.dart';
 import 'package:drink_app1/models/restaurant.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +31,7 @@ class CartPage extends StatelessWidget {
                     final cartItem = userCart[index];
 
                     //return cart tile UI
-                    return ListTile(
-                      title: Text(cartItem.food.name),
-                    );
+                    return MyCartTile(cartItem: cartItem);
                   },
                 ),
               ),
