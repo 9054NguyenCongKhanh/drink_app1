@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
-  //sort out and return a list of food items that belong to a specific category
+  //sap xep va tra ve danh sach cac mat hang thuoc category cu the
   List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fullMenu) {
     return fullMenu.where((food) => food.category == category).toList();
   }
