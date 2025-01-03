@@ -2,6 +2,8 @@ import 'package:drink_app1/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
+import 'delivery_progress_page.dart';
+
 class PaymentPage extends StatefulWidget {
   const PaymentPage({super.key});
 
@@ -16,6 +18,50 @@ class _PaymentPageState extends State<PaymentPage> {
   String cardHolderName = "";
   String cvvCode = "";
   bool isCvvFocused = false;
+
+  //nguoi dung muon thanh toan
+  void userTappedPay() {
+    if (formKey.currentState!.validate()) {
+      // only show dialog if form is valid
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Xác nhận thanh toán"),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                Text("Số thẻ: $cardNumber"),
+                Text("Ngày hết hạn: $expiryDate"),
+                Text("Tên chủ thẻ: $cardHolderName"),
+                Text("CVVcode: $cvvCode"),
+              ],
+            ),
+          ),
+          actions: [
+            // cancel button
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Hủy"),
+            ),
+
+            // yes button
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DeliveryProgressPage(),
+                  ),
+                );
+              },
+              child: const Text("Lưu"),
+            ),
+          ],
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +104,7 @@ class _PaymentPageState extends State<PaymentPage> {
           const Spacer(),
 
           MyButton(
-            onTap: () {},
+            onTap: userTappedPay,
             // Thực hiện hành động khi nút được nhấn
 
             text: "Thanh toán ngay",

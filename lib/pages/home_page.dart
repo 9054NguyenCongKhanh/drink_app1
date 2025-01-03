@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage>
     return fullMenu.where((food) => food.category == category).toList();
   }
 
-  //return list of foods in given category
+  //tra ve danh sach catrgory trong cua hang
   List<Widget> getFoodInThisCategory(List<Food> fullMenu) {
     return FoodCategory.values.map((category) {
       //get category menu
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage>
         physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          //get individual food
+          //them food
           final food = categoryMenu[index];
           //return food tile UI
           return FoodTile(
