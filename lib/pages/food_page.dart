@@ -82,7 +82,7 @@ class _FoodPageState extends State<FoodPage> {
 
                       //addons
                       Text(
-                        "Them 1",
+                        "Thêm",
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.inversePrimary,
                           fontSize: 16,

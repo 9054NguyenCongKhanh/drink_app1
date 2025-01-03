@@ -1,6 +1,8 @@
+import 'package:drink_app1/components/my_button.dart';
 import 'package:drink_app1/components/my_cart_tile.dart';
 import 'package:drink_app1/models/cart_item.dart';
 import 'package:drink_app1/models/restaurant.dart';
+import 'package:drink_app1/pages/payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +19,7 @@ class CartPage extends StatelessWidget {
         //scaffold UI
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Cart"),
+            title: const Text("Giỏ hàng"),
             backgroundColor: Colors.transparent,
             foregroundColor: Theme.of(context).colorScheme.inversePrimary,
             actions: [
@@ -27,7 +29,7 @@ class CartPage extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text("Bạn muốn xóa hết trong giỏ hàng?"),
+                      title: const Text("Bạn muốn xóa hết trong giỏ hàng?"),
                       actions: [
                         //button hủy
                         TextButton(
@@ -53,18 +55,44 @@ class CartPage extends StatelessWidget {
           ),
           body: Column(
             children: [
+              //danh sách trong giỏ hàng
               Expanded(
-                child: ListView.builder(
-                  itemCount: userCart.length,
-                  itemBuilder: (context, index) {
-                    //lay tung mat hang trong gio hang
-                    final cartItem = userCart[index];
+                child: Column(
+                  children: [
+                    userCart.isEmpty
+                        ? const Expanded(
+                            child: Center(
+                              child: Text("Giỏ hàng trống.."),
+                            ),
+                          )
+                        : Expanded(
+                            child: ListView.builder(
+                              itemCount: userCart.length,
+                              itemBuilder: (context, index) {
+                                //lay tung mat hang trong gio hang
+                                final cartItem = userCart[index];
 
-                    //return cart tile UI
-                    return MyCartTile(cartItem: cartItem);
-                  },
+                                //return cart tile UI
+                                return MyCartTile(cartItem: cartItem);
+                              },
+                            ),
+                          ),
+                  ],
                 ),
               ),
+
+              //nút thanh toán
+              MyButton(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PaymentPage(),
+                  ),
+                ),
+                text: "Đi đến thanh toán",
+              ),
+
+              const SizedBox(height: 25),
             ],
           ),
         );
