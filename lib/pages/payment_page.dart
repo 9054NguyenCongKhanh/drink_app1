@@ -30,9 +30,9 @@ class _PaymentPageState extends State<PaymentPage> {
           content: SingleChildScrollView(
             child: ListBody(
               children: [
-                Text("Số thẻ: $cardNumber"),
-                Text("Ngày hết hạn: $expiryDate"),
-                Text("Tên chủ thẻ: $cardHolderName"),
+                Text("Cart Number: $cardNumber"),
+                Text("Expiry Date: $expiryDate"),
+                Text("Card Name: $cardHolderName"),
                 Text("CVVcode: $cvvCode"),
               ],
             ),
