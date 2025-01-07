@@ -1,8 +1,7 @@
 import 'package:drink_app1/components/my_button.dart';
 import 'package:drink_app1/components/my_textfield.dart';
+import 'package:drink_app1/services/auth/auth_servide.dart';
 import 'package:flutter/material.dart';
-
-import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -19,12 +18,30 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   //login method
-  void login() {
-    //nagivate to home
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomePage(),
+  void login() async {
+    // get instance of auth service
+    final _authService = AuthServide();
+
+    // try sign in
+    try {
+      await _authService.signInWithEmailPassword(
+          emailController.text, passwordController.text);
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+  }
+
+  void forgotPw() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: const Text("Quên mật khẩu."),
       ),
     );
   }

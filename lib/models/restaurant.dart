@@ -309,7 +309,7 @@ class Restaurant extends ChangeNotifier {
   //tao hoa don
   String displayCartReceipt() {
     final receipt = StringBuffer();
-    receipt.writeln("Here's your receipt.");
+    receipt.writeln("Hóa đơn của bạn.");
     receipt.writeln();
 
     // format ngay thanh toan tren hoa don
